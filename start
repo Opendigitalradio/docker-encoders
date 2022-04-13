@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Set timezone
+if test -f "/usr/share/zoneinfo/${TZ}"; then
+    if test -f "/etc/localtime"; then
+        rm /etc/localtime
+    fi
+    ln "/usr/share/zoneinfo/${TZ}" /etc/localtime
+fi
+
+# Clear the /etc/supervisor/conf.d directory
+find /etc/supervisor/conf.d/ -type f -delete
+
+# Populate the /etc/supervisor/conf.d directory
+ln -s /odr-data/supervisor/*.conf /etc/supervisor/conf.d/
+
+# Start supervisor
+service supervisor start
