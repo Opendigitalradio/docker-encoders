@@ -15,4 +15,4 @@ find /etc/supervisor/conf.d/ -type f -delete
 ln -s /odr-data/supervisor/*.conf /etc/supervisor/conf.d/
 
 # Start supervisor
-service supervisor start
+supervisord --nodaemon
