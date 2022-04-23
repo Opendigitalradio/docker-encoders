@@ -4,8 +4,8 @@
 This repository is part of a project aiming at containerizing the [mmbTools](https://www.opendigitalradio.org/mmbtools) software stack of [Open Digital Radio](https://www.opendigitalradio.org/).
 
 This repository features the following components:
-- [audio encoder](https://github.com/opendigitalradio/ODR-AudioEnc) 
-- [PAD (Program Associated Data) encoder](https://github.com/opendigitalradio/ODR-PadEnc) 
+- [audio encoder (v3.2.0)](https://github.com/opendigitalradio/ODR-AudioEnc) 
+- [Program Associated Data encoder (v3.0.0)](https://github.com/opendigitalradio/ODR-PadEnc) 
 - [supervisor](http://supervisord.org/) 
 
 ## Quick setup
