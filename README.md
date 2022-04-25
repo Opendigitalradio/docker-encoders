@@ -1,3 +1,5 @@
+[![docker-publish](https://github.com/Opendigitalradio/docker-encoders/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Opendigitalradio/docker-encoders/actions/workflows/docker-publish.yml)
+
 # opendigitalradio/docker-encoders
 
 ## Introduction
