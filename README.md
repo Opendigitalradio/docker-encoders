@@ -30,8 +30,8 @@ This repository features the following components:
         --network odr \
         --publish 8001:8001 \
         --env "TZ=${TZ}" \
-        --volume $(pwd)/odr-data:/odr-data \
+        --volume $(pwd)/config:/config \
         opendigitalradio/encoders:latest \
-        /odr-data
+        /config
     ```
 1. Manage the encoders by pointing your web browser to `http://host_running_odr-encoders:8001`
