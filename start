@@ -9,7 +9,7 @@ if test -f "/usr/share/zoneinfo/${TZ}"; then
 fi
 
 # Populate the /etc/supervisor/conf.d directory
-ln -s "${1}/supervisor/*" /etc/supervisor/conf.d/
+ln -s "${1}"/supervisor/* /etc/supervisor/conf.d/
 
 # Start supervisor
 supervisord --nodaemon
