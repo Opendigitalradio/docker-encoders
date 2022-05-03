@@ -12,9 +12,11 @@ This repository features the following components:
 
 ## Quick setup
 1. Get this repository on your host
+1. Modify the file config/supervisor/encoders.conf to suit your needs. You can have more than 1 .conf file
+1. Review the content of the config/mot directory
 1. Declare your time zone:
     ```
-    TZ=your_time_zone (ex: Europe/Zurich)
+    TZ=your_time_zone (ex: TZ=Europe/Zurich)
     ```
 1. Create a docker network:
     ```
@@ -30,8 +32,8 @@ This repository features the following components:
         --network odr \
         --publish 8001:8001 \
         --env "TZ=${TZ}" \
-        --volume $(pwd)/odr-data:/odr-data \
+        --volume $(pwd)/config:/config \
         opendigitalradio/encoders:latest \
-        /odr-data
+        /config
     ```
 1. Manage the encoders by pointing your web browser to `http://host_running_odr-encoders:8001`
