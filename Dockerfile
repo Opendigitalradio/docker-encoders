@@ -79,6 +79,7 @@ RUN  chmod 0755 /usr/local/bin/start \
           libvlc5 vlc-plugin-base \
           libzmq5 \
           supervisor \
+          tzdata \
      && rm -rf /var/lib/apt/lists/* \
      && echo '' >> /etc/supervisor/supervisord.conf \
      && echo '[inet_http_server]' >> /etc/supervisor/supervisord.conf \

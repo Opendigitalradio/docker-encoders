@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Set timezone
-if test -f "/usr/share/zoneinfo/${TZ}"; then
-    if test -f "/etc/localtime"; then
-        rm /etc/localtime
-    fi
-    ln "/usr/share/zoneinfo/${TZ}" /etc/localtime
-fi
-
 # Populate the /etc/supervisor/conf.d directory
 ln -s "${1}"/supervisor/* /etc/supervisor/conf.d/
 
