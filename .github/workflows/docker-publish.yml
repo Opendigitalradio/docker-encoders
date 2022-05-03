@@ -1,20 +1,13 @@
 name: docker-publish
+
 on:
   release:
     types: [published]
-  workflow_dispatch:
-    inputs:
-      docker_version_tag:
-        description: 'Docker version tag'
-        required: true 
-        type: string
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout 
-        uses: actions/checkout@v2
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -28,19 +21,9 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       -
-        name: Set image_tag environment variable
-        run: |
-          if test "${{ github.event_name }}" = "workflow_dispatch"
-          then
-            echo "image_tag=${{ github.event.inputs.docker_version_tag }}" >> $GITHUB_ENV
-          else
-            echo "image_tag=${{ github.ref_name }}" >> $GITHUB_ENV
-          fi        
-      -
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
-          tags: opendigitalradio/encoders:latest,opendigitalradio/encoders:${{ env.image_tag }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/encoders:latest,${{ secrets.DOCKER_HUB_USERNAME }}/encoders:${{ github.ref_name }}
